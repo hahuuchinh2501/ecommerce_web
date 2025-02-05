@@ -81,14 +81,39 @@ include('functions/common_function.php');
         <div class="row px-3">
             <div class="col-md-10">
                 <div class="row">
+
+                    <div class="col-md-4">
+                        <div class='card'>
+                            <img src='./admin_area/product_images/$product_image1' class='card-img-top'
+                                alt='$product_title'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>$product_title</h5>
+                                <p class='card-text'>$product_description</p>
+                                <a href='#' class='btn btn-info'>Add to cart</a>
+                                <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View
+                                    more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <h4 class="text-center text-info mb-5 ">relate products</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <img src='./admin_area/product_images/$product_image1' class='card-img-top'
+                                alt='$product_title'>
+                        </div>
+                        <div class="col-md-6">
+                            <img src='./admin_area/product_images/$product_image1' class='card-img-top'
+                                alt='$product_title'>
+                        </div>
+                    </div>
                     <!-- fetching products -->
 
                     <?php
-                    getproducts();
                     get_unique_categories();
                     get_unique_brands();
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
                     ?>
                     <!-- <div class="col-md-4 mb-4">
                         <div class="card">

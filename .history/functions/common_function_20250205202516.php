@@ -237,7 +237,7 @@ function view_details()
     if (isset($_GET['product_id'])) {
         if (!isset($_GET['category'])) {
             if (!isset($_GET['brand'])) {
-                $product_id = $_GET['product_id'];
+                $product_id = $_GET('product_id');
                 $select_query = "Select * from `products` where product_id=$product_id";
                 $result_query = mysqli_query($con, $select_query);
                 while ($row = mysqli_fetch_assoc($result_query)) {
@@ -263,7 +263,6 @@ function view_details()
                     </div>
                     
                      <div class='col-md-8'>
-                     <div class='row'>
                         <div class='col-md-12'>
                             <h4 class='text-center text-info mb-5 '>relate products</h4>
                         </div>
@@ -277,7 +276,7 @@ function view_details()
                         </div>
                     </div>
                     
-                    </div>
+                    
                     ";
                 }
             }
@@ -285,24 +284,4 @@ function view_details()
         }
     }
 }
-
-//get ip address
-function getIPAddress()
-{
-    //whether ip is from the share internet  
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    }
-    //whether ip is from the proxy  
-    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }
-    //whether ip is from the remote address  
-    else {
-        $ip = $_SERVER['REMOTE_ADDR'];
-    }
-    return $ip;
-}
-// $ip = getIPAddress();
-// echo 'User Real IP Address - ' . $ip;
 ?>
