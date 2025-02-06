@@ -51,7 +51,7 @@ include('functions/common_function.php');
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
+                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?></a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
@@ -64,7 +64,7 @@ include('functions/common_function.php');
             </div>
         </nav>
 
-        <!-- call function cart -->
+
         <?php
         cart();
         ?>
@@ -87,14 +87,16 @@ include('functions/common_function.php');
         <div class="row px-3">
             <div class="col-md-10">
                 <div class="row">
+
+
+
+
                     <!-- fetching products -->
 
                     <?php
-                    getproducts();
+                    view_details();
                     get_unique_categories();
                     get_unique_brands();
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
                     ?>
                     <!-- <div class="col-md-4 mb-4">
                         <div class="card">

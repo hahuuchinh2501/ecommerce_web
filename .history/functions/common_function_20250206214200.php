@@ -362,7 +362,7 @@ function total_cart_price()
 {
     global $con;
     $get_ip_add = getIPAddress();
-    $total_price = 0;
+    $total = 0;
 
     $cart_query = "Select * from `cart_details` where ip_address='$get_ip_add'";
     $result = mysqli_query($con, $cart_query);
@@ -371,12 +371,12 @@ function total_cart_price()
         $select_products = "Select * from `products` where product_id='$product_id'";
         $result_products = mysqli_query($con, $select_products);
         while ($row_product_price = mysqli_fetch_array($result_products)) {
-            $product_price = array($row_product_price['product_price']);
+            $product_price = array($row_product_price['price']);
             $product_values = array_sum($product_price);
-            $total_price += $product_values;
+            $total += $product_values;
         }
     }
-    echo $total_price;
+    echo $total;
 }
 
 ?>

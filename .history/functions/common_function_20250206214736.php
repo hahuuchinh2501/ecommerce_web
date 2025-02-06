@@ -371,7 +371,7 @@ function total_cart_price()
         $select_products = "Select * from `products` where product_id='$product_id'";
         $result_products = mysqli_query($con, $select_products);
         while ($row_product_price = mysqli_fetch_array($result_products)) {
-            $product_price = array($row_product_price['product_price']);
+            $product_price = array($row_product_price['price']);
             $product_values = array_sum($product_price);
             $total_price += $product_values;
         }

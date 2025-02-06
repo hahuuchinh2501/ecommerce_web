@@ -51,20 +51,17 @@ include('functions/common_function.php');
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
+                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?></a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            name="search_data">
-                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </nav>
 
-        <!-- call function cart -->
         <?php
         cart();
         ?>
@@ -90,11 +87,9 @@ include('functions/common_function.php');
                     <!-- fetching products -->
 
                     <?php
-                    getproducts();
+                    get_all_products();
                     get_unique_categories();
                     get_unique_brands();
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
                     ?>
                     <!-- <div class="col-md-4 mb-4">
                         <div class="card">
@@ -207,7 +202,6 @@ include('functions/common_function.php');
             </div>
         </div>
 
-        <!-- include footer  -->
         <?php
         include("./includes/footer.php")
             ?>

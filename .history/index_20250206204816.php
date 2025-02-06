@@ -51,7 +51,7 @@ include('functions/common_function.php');
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
+                            <a class="nav-link" href="#">total price</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">

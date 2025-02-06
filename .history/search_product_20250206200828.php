@@ -47,14 +47,13 @@ include('functions/common_function.php');
                             <a class="nav-link" href="#">register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">cart <i
-                                    class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
+                            <a class="nav-link" href="#">cart <i class="fa-solid fa-cart-shopping"><sup>1</sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
+                            <a class="nav-link" href="#">total price</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
+                    <form class="d-flex" role="search" action="" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                             name="search_data">
                         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
@@ -64,10 +63,10 @@ include('functions/common_function.php');
             </div>
         </nav>
 
-        <!-- call function cart -->
         <?php
         cart();
         ?>
+
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
@@ -90,11 +89,9 @@ include('functions/common_function.php');
                     <!-- fetching products -->
 
                     <?php
-                    getproducts();
+                    search_product();
                     get_unique_categories();
                     get_unique_brands();
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
                     ?>
                     <!-- <div class="col-md-4 mb-4">
                         <div class="card">
