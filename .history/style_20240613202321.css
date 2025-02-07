@@ -14,8 +14,3 @@
             height: 360px; /* Đặt chiều cao cố định */
             object-fit: cover; /* Đảm bảo hình ảnh vừa khung và không bị biến dạng */
         }
-
-.cart_img {
-    width:50px;
-    height:50px;
-}

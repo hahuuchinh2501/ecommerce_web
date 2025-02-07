@@ -11,7 +11,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>website</title>
+    <title>website-cart details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -50,16 +50,9 @@ include('functions/common_function.php');
                             <a class="nav-link" href="cart.php">cart <i
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
-                        </li>
+
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            name="search_data">
-                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
-                    </form>
+
                 </div>
             </div>
         </nav>
