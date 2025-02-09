@@ -191,8 +191,8 @@ include('functions/common_function.php');
                             echo "<h4 class='px-3 py-2'>Total: <strong> $total_price VND</strong></h4>
                             <input type='submit' value='Continue Shopping' class='bg-info px-3 py-2 border-0 mx-3'
                                                 name='continue_shopping'>
-
-                            <button class='bg-secondary p-3 py-2 border-0 '><a href='checkout.php' class=' text-light text-decoration-none'>Checkout</a></button>";
+    <a href='index.php' class='bg-info px-3 py-2 border-0 mx-3 text-decoration-none text-dark'>Continue Shopping</a>
+    <a href='#' class='bg-secondary px-3 py-2 border-0 text-light text-decoration-none'>Checkout</a>";
                         } else {
                             echo " <input type='submit' value='Continue Shopping' class='bg-info px-3 py-2 border-0 mx-3'
                                                 name='continue_shopping'>";

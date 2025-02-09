@@ -115,7 +115,7 @@ include('functions/common_function.php');
 
                             while ($row = mysqli_fetch_array($result)) {
                                 $product_id = $row['product_id'];
-                                $quantity = ($row['quantity'] > 0) ? $row['quantity'] : 1;
+                                $quantity = $row['quantity'];
                                 $select_products = "Select * from `products` where product_id='$product_id'";
                                 $result_products = mysqli_query($con, $select_products);
                                 while ($row_product_price = mysqli_fetch_array($result_products)) {
@@ -189,16 +189,10 @@ include('functions/common_function.php');
                         $result_count = mysqli_num_rows($result);
                         if ($result_count > 0) {
                             echo "<h4 class='px-3 py-2'>Total: <strong> $total_price VND</strong></h4>
-                            <input type='submit' value='Continue Shopping' class='bg-info px-3 py-2 border-0 mx-3'
-                                                name='continue_shopping'>
-
-                            <button class='bg-secondary p-3 py-2 border-0 '><a href='checkout.php' class=' text-light text-decoration-none'>Checkout</a></button>";
+    <a href='index.php' class='bg-info px-3 py-2 border-0 mx-3 text-decoration-none text-dark'>Continue Shopping</a>
+    <a href='#' class='bg-secondary px-3 py-2 border-0 text-light text-decoration-none'>Checkout</a>";
                         } else {
-                            echo " <input type='submit' value='Continue Shopping' class='bg-info px-3 py-2 border-0 mx-3'
-                                                name='continue_shopping'>";
-                        }
-                        if (isset($_POST['continue_shopping'])) {
-                            echo "<script>window.open('index.php','_self')</script>";
+                            echo "<a href='index.php' class='bg-info px-3 py-2 border-0 mx-3 text-decoration-none text-dark'>Continue Shopping</a>";
                         }
 
 
