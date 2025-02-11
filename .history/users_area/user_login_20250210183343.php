@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid my-3">
-        <h2 class="text-center">Login account</h2>
+        <h2 class="text-center">New User Registration</h2>
         <div class="row d-flex align-items-center justify-content-center mt-5">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
@@ -31,9 +31,8 @@
                     </div>
 
                     <div class="mt-4 pt-2">
-                        <input type="submit" value="Login" class="bg-info py-2 px-3 border-0" name="user_login">
-                        <p class="small fw-bold mt-2 pt-1 mb-0"> don't have an account? <a
-                                href="user_registration.php">Registry</a></p>
+                        <input type="submit" value="Register" class="bg-info py-2 px-3 border-0" name="user_register">
+                        <p>Already have an account<a href="user_login.php">Login</a></p>
                     </div>
                 </form>
 

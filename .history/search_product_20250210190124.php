@@ -51,12 +51,14 @@ include('functions/common_function.php');
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND</a>
+                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex" role="search" action="" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            name="search_data">
+                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                        <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
                     </form>
                 </div>
             </div>
@@ -66,13 +68,14 @@ include('functions/common_function.php');
         cart();
         ?>
 
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">welcome guest</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php">login</a>
+                    <a class="nav-link" href="./users_area/user_login">login</a>
                 </li>
             </ul>
         </nav>
@@ -87,7 +90,7 @@ include('functions/common_function.php');
                     <!-- fetching products -->
 
                     <?php
-                    get_all_products();
+                    search_product();
                     get_unique_categories();
                     get_unique_brands();
                     ?>
@@ -202,6 +205,7 @@ include('functions/common_function.php');
             </div>
         </div>
 
+        <!-- include footer  -->
         <?php
         include("./includes/footer.php")
             ?>

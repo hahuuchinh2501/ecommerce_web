@@ -72,7 +72,7 @@ include('functions/common_function.php');
                     <a class="nav-link" href="#">welcome guest</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php">login</a>
+                    <a class="nav-link" href="./users_area/user_login">login</a>
                 </li>
             </ul>
         </nav>
