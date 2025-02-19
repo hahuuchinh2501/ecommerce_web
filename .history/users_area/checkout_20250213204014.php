@@ -39,13 +39,13 @@ session_start();
                             <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../display_all.php">products</a>
+                            <a class="nav-link" href="display_all.php">products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="user_registration.php">register</a>
+                            <a class="nav-link" href="#">register</a>
                         </li>
 
                     </ul>

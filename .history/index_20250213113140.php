@@ -1,7 +1,6 @@
 <?php
 include('includes/connect.php');
 include('functions/common_function.php');
-session_start();
 ?>
 
 
@@ -21,6 +20,11 @@ session_start();
     <link rel="stylesheet" href="style.css">
 
 </head>
+<style>
+    body {
+        overflow-x: hidden;
+    }
+</style>
 
 <body>
     <!-- navbar -->
@@ -52,7 +56,7 @@ session_start();
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND</a>
+                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
@@ -65,36 +69,19 @@ session_start();
             </div>
         </nav>
 
-
+        <!-- call function cart -->
         <?php
         cart();
         ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
-
-                <?php
-                if (!isset($_SESSION['username'])) {
-                    echo "   <li class='nav-item'>
-                            <a class='nav-link' href='#'>welcome guest</a>
-                        </li>";
-                } else {
-                    echo "    <li class='nav-item'>
-                            <a class='nav-link' href='#'>welcome " . $_SESSION['username'] . "</a>
-                        </li>";
-                }
-
-                if (!isset($_SESSION['username'])) {
-                    echo "  <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/user_login.php'>login</a>
-                </li>";
-                } else {
-                    echo "  <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/logout.php'>logout</a>
-                </li>";
-                }
-                ?>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="#">welcome guest</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./users_area/user_login.php">login</a>
+                </li>
             </ul>
         </nav>
         <div class="bg-light">
@@ -105,16 +92,14 @@ session_start();
         <div class="row px-3">
             <div class="col-md-10">
                 <div class="row">
-
-
-
-
                     <!-- fetching products -->
 
                     <?php
-                    view_details();
+                    getproducts();
                     get_unique_categories();
                     get_unique_brands();
+                    // $ip = getIPAddress();
+                    // echo 'User Real IP Address - ' . $ip;
                     ?>
                     <!-- <div class="col-md-4 mb-4">
                         <div class="card">

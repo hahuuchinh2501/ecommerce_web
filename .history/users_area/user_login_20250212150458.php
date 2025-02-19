@@ -1,10 +1,3 @@
-<?php
-include('../includes/connect.php');
-include('../functions/common_function.php');
-@session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,21 +63,11 @@ if (isset($_POST['user_login'])) {
     $user_ip = getIPAddress();
 
 
-    $select_query_cart = "Select * from `cart_details` where ip_address='$user_ip'";
-    $select_cart = mysqli_query($con, $select_query_cart);
-    $row_count_cart = mysqli_num_rows($select_cart);
+    $select_query = "Select * from `cart_details` where ip_address='$user_ip'";
+
     if ($row_count > 0) {
-        $_SESSION['username'] = $user_username;
         if (password_verify($user_password, $row_data['user_password'])) {
-            if ($row_count == 1 and $row_count_cart == 0) {
-                $_SESSION['username'] = $user_username;
-                echo "<script>alert('Login success')</script>";
-                echo "<script>window.open('profile.php','_self')</script>";
-            } else {
-                $_SESSION['username'] = $user_username;
-                echo "<script>alert('Login success')</script>";
-                echo "<script>window.open('payment.php','_self')</script>";
-            }
+            echo "<script>alert('Login success')</script>";
         } else {
             echo "<script>alert('Invalid Credentials')</script>";
         }

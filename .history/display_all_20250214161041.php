@@ -45,7 +45,7 @@ session_start();
                             <a class="nav-link" href="#">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./users_area/user_registration.php">register</a>
+                            <a class="nav-link" href="#">register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php">cart <i
@@ -55,16 +55,13 @@ session_start();
                             <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            name="search_data">
-                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </nav>
-
 
         <?php
         cart();
@@ -83,7 +80,6 @@ session_start();
                             <a class='nav-link' href='#'>welcome " . $_SESSION['username'] . "</a>
                         </li>";
                 }
-
                 if (!isset($_SESSION['username'])) {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>login</a>
@@ -105,14 +101,10 @@ session_start();
         <div class="row px-3">
             <div class="col-md-10">
                 <div class="row">
-
-
-
-
                     <!-- fetching products -->
 
                     <?php
-                    view_details();
+                    get_all_products();
                     get_unique_categories();
                     get_unique_brands();
                     ?>
@@ -227,7 +219,6 @@ session_start();
             </div>
         </div>
 
-        <!-- include footer  -->
         <?php
         include("./includes/footer.php")
             ?>

@@ -45,17 +45,17 @@ session_start();
                             <a class="nav-link" href="#">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./users_area/user_registration.php">register</a>
+                            <a class="nav-link" href="#">register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php">cart <i
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND</a>
+                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
+                    <form class="d-flex" role="search" action="" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                             name="search_data">
                         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
@@ -65,32 +65,24 @@ session_start();
             </div>
         </nav>
 
-
         <?php
         cart();
         ?>
 
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="#">welcome guest</a>
+                </li>
                 <?php
                 if (!isset($_SESSION['username'])) {
-                    echo "   <li class='nav-item'>
-                            <a class='nav-link' href='#'>welcome guest</a>
-                        </li>";
-                } else {
-                    echo "    <li class='nav-item'>
-                            <a class='nav-link' href='#'>welcome " . $_SESSION['username'] . "</a>
-                        </li>";
-                }
-
-                if (!isset($_SESSION['username'])) {
                     echo "  <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/user_login.php'>login</a>
+                    <a class='nav-link' href='./user_login.php'>login</a>
                 </li>";
                 } else {
                     echo "  <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/logout.php'>logout</a>
+                    <a class='nav-link' href='logout.php'>logout</a>
                 </li>";
                 }
                 ?>
@@ -105,14 +97,10 @@ session_start();
         <div class="row px-3">
             <div class="col-md-10">
                 <div class="row">
-
-
-
-
                     <!-- fetching products -->
 
                     <?php
-                    view_details();
+                    search_product();
                     get_unique_categories();
                     get_unique_brands();
                     ?>

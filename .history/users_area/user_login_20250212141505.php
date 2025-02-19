@@ -1,10 +1,3 @@
-<?php
-include('../includes/connect.php');
-include('../functions/common_function.php');
-@session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +10,8 @@ include('../functions/common_function.php');
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    body {
-        overflow-x: hidden;
+    .body {
+        overflow: hidden;
     }
 </style>
 
@@ -61,36 +54,7 @@ include('../functions/common_function.php');
 if (isset($_POST['user_login'])) {
     $user_username = $_POST['user_username'];
     $user_password = $_POST['user_password'];
-
-
-    $select_query = "Select * from `user_table` where username='$user_username'";
-    $result = mysqli_query($con, $select_query);
-    $row_count = mysqli_num_rows($result);
-    $row_data = mysqli_fetch_assoc($result);
-    $user_ip = getIPAddress();
-
-
-    $select_query_cart = "Select * from `cart_details` where ip_address='$user_ip'";
-    $select_cart = mysqli_query($con, $select_query_cart);
-    $row_count_cart = mysqli_num_rows($select_cart);
-    if ($row_count > 0) {
-        $_SESSION['username'] = $user_username;
-        if (password_verify($user_password, $row_data['user_password'])) {
-            if ($row_count == 1 and $row_count_cart == 0) {
-                $_SESSION['username'] = $user_username;
-                echo "<script>alert('Login success')</script>";
-                echo "<script>window.open('profile.php','_self')</script>";
-            } else {
-                $_SESSION['username'] = $user_username;
-                echo "<script>alert('Login success')</script>";
-                echo "<script>window.open('payment.php','_self')</script>";
-            }
-        } else {
-            echo "<script>alert('Invalid Credentials')</script>";
-        }
-    } else {
-        echo "<script>alert('Invalid Credentials')</script>";
-    }
+    echo $user_password;
 }
 
 ?>
