@@ -12,10 +12,8 @@ include('../functions/common_function.php');
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <style>
-    .payment_img {
+    img {
         width: 100%;
-        margin: auto;
-        display: block;
     }
 </style>
 <body>
@@ -30,7 +28,7 @@ include('../functions/common_function.php');
         <h2 class="text-center text-info">Payment options</h2>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-6">
-                <a href="https://www.paypal.com" target="_blank"><img src="../images/upi.jpg" alt="pay" class="payment_img"></a>
+                <a href="https://www.paypal.com" target="_blank"><img src="../images/upi.jpg" alt="pay"></a>
 
             </div>
             <div class="col-md-6">

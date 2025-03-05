@@ -61,6 +61,9 @@ if(isset($_SESSION['username'])) {
                             <a class="nav-link" href="#">contact</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="./users_area/user_registration.php">register</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="cart.php">cart <i
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>

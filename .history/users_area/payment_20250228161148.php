@@ -12,7 +12,7 @@ include('../functions/common_function.php');
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <style>
-    .payment_img {
+    img {
         width: 100%;
         margin: auto;
         display: block;
