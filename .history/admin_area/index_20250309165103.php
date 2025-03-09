@@ -58,7 +58,6 @@ include('../functions/common_function.php');
         width: 100px;
         object-fit: contain;
     }
-
     </style>
 </head>
 <body>
@@ -91,9 +90,9 @@ include('../functions/common_function.php');
                 <button class="admin-button bg-info"><a href="insert_product.php">Insert product</a></button>
                 <button class="admin-button bg-info"><a href="index.php?view_products">View product</a></button>
                 <button class="admin-button bg-info"><a href="index.php?insert_category">Insert categories</a></button>
-                <button class="admin-button bg-info"><a href="index.php?view_categories">View categories</a></button>
+                <button class="admin-button bg-info"><a href="">View categories</a></button>
                 <button class="admin-button bg-info"><a href="index.php?insert_brand">Insert brands</a></button>
-                <button class="admin-button bg-info"><a href="index.php?view_brands">View brands</a></button>
+                <button class="admin-button bg-info"><a href="">View brands</a></button>
                 <button class="admin-button bg-info"><a href="">All orders</a></button>
                 <button class="admin-button bg-info"><a href="">All payment</a></button>
                 <button class="admin-button bg-info"><a href="">List user</a></button>
@@ -113,24 +112,6 @@ include('../functions/common_function.php');
         }
         if(isset($_GET['view_products'])){
             include('view_products.php');
-        }
-        if(isset($_GET['edit_products'])){
-            include('edit_products.php');
-        }
-         if(isset($_GET['delete_product'])){
-            include('delete_product.php');
-        }
-        if(isset($_GET['view_categories'])){
-            include('view_categories.php');
-        }
-        if(isset($_GET['view_brands'])){
-            include('view_brands.php');
-        }
-        if(isset($_GET['edit_category'])){
-            include('edit_category.php');
-        }
-        if(isset($_GET['edit_brands'])){
-            include('edit_brands.php');
         }
         ?>
     </div>

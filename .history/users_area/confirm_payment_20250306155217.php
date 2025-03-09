@@ -23,8 +23,6 @@ if(isset($_POST['confirm_payment'])){
         echo "<h3 class='text-center text-light'>Successfully completed the payment</h3>";
         echo "<script>window.open('profile.php?my_orders','_self')</script>";
     }
-    $update_orders="update `user_orders` set order_status='Complete' where order_id=$order_id";
-    $result_orders=mysqli_query($con,$update_orders);
 }
 
 

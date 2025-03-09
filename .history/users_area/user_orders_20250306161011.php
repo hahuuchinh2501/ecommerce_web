@@ -59,7 +59,7 @@ while($row_orders = mysqli_fetch_assoc($result_orders)) {
     if($order_status=='Complete'){
     echo "<td>Paid</td>";
 }else{
-    echo "<td><a href='confirm_payment.php?order_id=$order_id' class='text-dark'>Confirm</a></td>
+    echo "<td><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>
     </tr>";
 }
   

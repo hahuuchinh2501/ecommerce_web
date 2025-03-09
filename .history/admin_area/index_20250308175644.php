@@ -55,10 +55,9 @@ include('../functions/common_function.php');
         overflow-x: hidden;
     }
     .product_img{
-        width: 100px;
+        width: 10%;
         object-fit: contain;
     }
-
     </style>
 </head>
 <body>
@@ -89,11 +88,11 @@ include('../functions/common_function.php');
             </div>
             <div class="button-group">
                 <button class="admin-button bg-info"><a href="insert_product.php">Insert product</a></button>
-                <button class="admin-button bg-info"><a href="index.php?view_products">View product</a></button>
+                <button class="admin-button bg-info"><a href="index.php?view_product">View product</a></button>
                 <button class="admin-button bg-info"><a href="index.php?insert_category">Insert categories</a></button>
-                <button class="admin-button bg-info"><a href="index.php?view_categories">View categories</a></button>
+                <button class="admin-button bg-info"><a href="">View categories</a></button>
                 <button class="admin-button bg-info"><a href="index.php?insert_brand">Insert brands</a></button>
-                <button class="admin-button bg-info"><a href="index.php?view_brands">View brands</a></button>
+                <button class="admin-button bg-info"><a href="">View brands</a></button>
                 <button class="admin-button bg-info"><a href="">All orders</a></button>
                 <button class="admin-button bg-info"><a href="">All payment</a></button>
                 <button class="admin-button bg-info"><a href="">List user</a></button>
@@ -114,28 +113,10 @@ include('../functions/common_function.php');
         if(isset($_GET['view_products'])){
             include('view_products.php');
         }
-        if(isset($_GET['edit_products'])){
-            include('edit_products.php');
-        }
-         if(isset($_GET['delete_product'])){
-            include('delete_product.php');
-        }
-        if(isset($_GET['view_categories'])){
-            include('view_categories.php');
-        }
-        if(isset($_GET['view_brands'])){
-            include('view_brands.php');
-        }
-        if(isset($_GET['edit_category'])){
-            include('edit_category.php');
-        }
-        if(isset($_GET['edit_brands'])){
-            include('edit_brands.php');
-        }
         ?>
     </div>
     <?php
-        include("../includes/footer.php")
+        include("./includes/footer.php")
             ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

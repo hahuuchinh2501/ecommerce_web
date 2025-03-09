@@ -58,7 +58,7 @@ include('../functions/common_function.php');
         width: 100px;
         object-fit: contain;
     }
-
+    table {}
     </style>
 </head>
 <body>
@@ -125,12 +125,6 @@ include('../functions/common_function.php');
         }
         if(isset($_GET['view_brands'])){
             include('view_brands.php');
-        }
-        if(isset($_GET['edit_category'])){
-            include('edit_category.php');
-        }
-        if(isset($_GET['edit_brands'])){
-            include('edit_brands.php');
         }
         ?>
     </div>
