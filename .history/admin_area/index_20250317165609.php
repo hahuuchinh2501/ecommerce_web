@@ -97,7 +97,7 @@ include('../functions/common_function.php');
                 <button class="admin-button bg-info"><a href="index.php?view_brands">View brands</a></button>
                 <button class="admin-button bg-info"><a href="index.php?list_orders">All orders</a></button>
                 <button class="admin-button bg-info"><a href="index.php?list_payments">All payment</a></button>
-                <button class="admin-button bg-info"><a href="index.php?list_users">List user</a></button>
+                <button class="admin-button bg-info"><a href="">List user</a></button>
                 <button class="admin-button bg-info"><a href="">Logout</a></button>
             </div>
         </div>
@@ -147,12 +147,6 @@ include('../functions/common_function.php');
         }
         if(isset($_GET['list_payments'])){
             include('list_payments.php');
-        }
-        if(isset($_GET['delete_payment'])){
-            include('delete_payment.php');
-        }
-        if(isset($_GET['list_users'])){
-            include('list_users.php');
         }
         ?>
     </div>
