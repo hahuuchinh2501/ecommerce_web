@@ -32,6 +32,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 </table>
 
 
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -41,8 +46,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         <h4>do you want to delete </h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="./index.php?view_brands" class="text-light text-decoration-none">No</a></button>
-        <button type="button" class="btn btn-primary"><a href="index.php?delete_brands=<?php echo $brand_id ?>" class="text-light text-decoration-none">yes</a></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
       </div>
     </div>
   </div>

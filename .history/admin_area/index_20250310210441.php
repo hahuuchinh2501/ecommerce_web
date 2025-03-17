@@ -12,7 +12,6 @@ include('../functions/common_function.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
     .admin_image {
         width: 100px;
@@ -95,7 +94,7 @@ include('../functions/common_function.php');
                 <button class="admin-button bg-info"><a href="index.php?view_categories">View categories</a></button>
                 <button class="admin-button bg-info"><a href="index.php?insert_brand">Insert brands</a></button>
                 <button class="admin-button bg-info"><a href="index.php?view_brands">View brands</a></button>
-                <button class="admin-button bg-info"><a href="index.php?list_orders">All orders</a></button>
+                <button class="admin-button bg-info"><a href="">All orders</a></button>
                 <button class="admin-button bg-info"><a href="">All payment</a></button>
                 <button class="admin-button bg-info"><a href="">List user</a></button>
                 <button class="admin-button bg-info"><a href="">Logout</a></button>
@@ -138,9 +137,6 @@ include('../functions/common_function.php');
         }
         if(isset($_GET['delete_brands'])){
             include('delete_brands.php');
-        }
-          if(isset($_GET['list_orders'])){
-            include('list_orders.php');
         }
         ?>
     </div>

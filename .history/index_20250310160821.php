@@ -1,6 +1,7 @@
 <?php
 include('includes/connect.php');
 include('functions/common_function.php');
+session_start();
 ?>
 
 
@@ -20,6 +21,11 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="style.css">
 
 </head>
+<style>
+    body {
+        overflow-x: hidden;
+    }
+</style>
 
 <body>
     <!-- navbar -->
@@ -40,18 +46,26 @@ include('functions/common_function.php');
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">products</a>
                         </li>
+                        <?php
+if(isset($_SESSION['username'])) {
+    echo "<li class='nav-item'>";
+    echo "<a class='nav-link' href='./users_area/profile.php'>My Account</a>";
+    echo "</li>";
+} else {
+    echo "<li class='nav-item'>";
+    echo "<a class='nav-link' href='./users_area/user_registration.php'>Register</a>";
+    echo "</li>";
+}
+?>
                         <li class="nav-item">
                             <a class="nav-link" href="#">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">cart <i
+                            <a class="nav-link" href="cart.php">cart <i
                                     class="fa-solid fa-cart-shopping"><sup><?php cart_item(); ?></sup></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><?php total_cart_price(); ?></a>
+                            <a class="nav-link" href="#">total price: <?php total_cart_price(); ?>VND </a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
@@ -71,12 +85,30 @@ include('functions/common_function.php');
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">welcome guest</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">login</a>
-                </li>
+
+                <?php
+                if (!isset($_SESSION['username'])) {
+                    echo "   <li class='nav-item'>
+                            <a class='nav-link' href='#'>welcome guest</a>
+                        </li>";
+                } else {
+                    echo "    <li class='nav-item'>
+                            <a class='nav-link' href='#'>welcome " . $_SESSION['username'] . "</a>
+                        </li>";
+                }
+
+
+                if (!isset($_SESSION['username'])) {
+                    echo "  <li class='nav-item'>
+                    <a class='nav-link' href='./users_area/user_login.php'>login</a>
+                </li>";
+                } else {
+                    echo "  <li class='nav-item'>
+                    <a class='nav-link' href='./users_area/logout.php'>logout</a>
+                </li>";
+                }
+                ?>
+
             </ul>
         </nav>
         <div class="bg-light">
@@ -126,38 +158,13 @@ include('functions/common_function.php');
                     </li>
 
                     <?php
-                    // $select_brands="select * from `brands`";
-                    // $result_brands=mysqli_query($con,$select_brands);
-                    // // $row_data=mysqli_fetch_assoc($result_brands);
-                    // // echo $row_data['brand_title'];
-                    // // echo $row_data['brand_title'];
-                    // while($row_data=mysqli_fetch_assoc($result_brands)){
-                    //     $brand_title=$row_data['brand_title'];
-                    //     $brand_id=$row_data['brand_id'];
-                    //     echo "<li class='nav-item'>
-                    //     <a href='index.php?brand=$brand_id' class='nav-link text-light'> $brand_title</a>
-                    // </li>";
-                    // }                     
+                                        
                     getbrands();
 
                     ?>
 
 
-                    <!-- <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> Brands1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> Brands2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> Brands3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> Brands4</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> Brands3</a>
-                    </li> -->
+                    
                 </ul>
 
 
@@ -170,39 +177,14 @@ include('functions/common_function.php');
                     </li>
 
                     <?php
-                    // $select_categories="select * from `categories`";
-                    // $result_categories=mysqli_query($con,$select_categories);
-                    // // $row_data=mysqli_fetch_assoc($result_brands);
-                    // // echo $row_data['brand_title'];
-                    // // echo $row_data['brand_title'];
-                    // while($row_data=mysqli_fetch_assoc($result_categories)){
-                    //     $category_title=$row_data['category_title'];
-                    //     $category_id=$row_data['category_id'];
-                    //     echo "<li class='nav-item'>
-                    //     <a href='index.php?category=$category_id' class='nav-link text-light'> $category_title</a>
-                    // </li>";
-                    // }                     
+                               
                     getcategories();
                     ?>
 
 
 
 
-                    <!-- <li class="nav-item">
-                        <a href="#" class="nav-link text-light">categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light"> categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">categories</a>
-                    </li> -->
+                    
                 </ul>
             </div>
         </div>

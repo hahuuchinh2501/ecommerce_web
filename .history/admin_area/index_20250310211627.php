@@ -95,7 +95,7 @@ include('../functions/common_function.php');
                 <button class="admin-button bg-info"><a href="index.php?view_categories">View categories</a></button>
                 <button class="admin-button bg-info"><a href="index.php?insert_brand">Insert brands</a></button>
                 <button class="admin-button bg-info"><a href="index.php?view_brands">View brands</a></button>
-                <button class="admin-button bg-info"><a href="index.php?list_orders">All orders</a></button>
+                <button class="admin-button bg-info"><a href="">All orders</a></button>
                 <button class="admin-button bg-info"><a href="">All payment</a></button>
                 <button class="admin-button bg-info"><a href="">List user</a></button>
                 <button class="admin-button bg-info"><a href="">Logout</a></button>
@@ -138,9 +138,6 @@ include('../functions/common_function.php');
         }
         if(isset($_GET['delete_brands'])){
             include('delete_brands.php');
-        }
-          if(isset($_GET['list_orders'])){
-            include('list_orders.php');
         }
         ?>
     </div>
