@@ -1,0 +1,101 @@
+.payment-form-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 600px;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.form-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-title::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: var(--highlight-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.payment-input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.payment-input:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.15);
+}
+
+.payment-label {
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+}
+
+.payment-select {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.payment-select:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 0.2rem rgba(232, 62, 140, 0.15);
+}
+
+.payment-btn {
+  background-color: var(--highlight-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+}
+
+.payment-btn:hover {
+  background-color: #d33077;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(232, 62, 140, 0.2);
+}
+
+.payment-header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--highlight-color)
+  );
+  padding: 40px 0;
+  margin-bottom: 40px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+}
+
+.payment-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
