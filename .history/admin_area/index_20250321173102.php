@@ -167,7 +167,7 @@ include('../functions/common_function.php');
           if(isset($_GET['list_orders_pending'])){
             include('list_orders_pending.php');
         }
-        if(isset($_GET['delete_order_pending'])){
+        if(isset($_GET['delete_order'])){
             include('delete_order_pending.php');
         }
         ?>

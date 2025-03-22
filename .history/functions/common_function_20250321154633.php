@@ -28,7 +28,9 @@ function getproducts()
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description</p>
                                 <p class='card-text'>Giá: $product_price</p>
-                                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
+                            <a href='javascript:void(0)' onclick='checkLoginAndAddToCart(<?php echo $product_id; ?>)' class='btn btn-add-cart'>
+    <i class='fas fa-shopping-cart me-2'></i>Thêm Vào Giỏ Hàng
+</a>
                                 <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
@@ -408,41 +410,50 @@ function getIPAddress()
 function cart() {
     if(isset($_GET['add_to_cart'])) {
         global $con;
-        
-        // Check if user is logged in
-        if(!isset($_SESSION['username'])) {
-            // User is not logged in, redirect to login page with a message
-            echo "<script>alert('Please login to add items to cart')</script>";
-            echo "<script>window.open('./users_area/user_login.php','_self')</script>";
-            return; // Stop execution of the function
-        }
-        
         $get_ip_add = getIPAddress();
         $get_product_id = $_GET['add_to_cart'];
-        $username = $_SESSION['username'];
         
-        // Get user ID from username
-        $get_user = "SELECT * FROM user_table WHERE username='$username'";
-        $result_user = mysqli_query($con, $get_user);
-        $row_user = mysqli_fetch_assoc($result_user);
-        $user_id = $row_user['user_id'];
-        
-        // Check if product is already in cart
-        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add' AND product_id=$get_product_id AND user_id=$user_id";
-        $result_query = mysqli_query($con, $select_query);
-        
-        if(mysqli_num_rows($result_query) > 0) {
-            echo "<script>alert('This item is already in your cart')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+        // Check if user is logged in
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            $get_user = "SELECT * FROM user_table WHERE username='$username'";
+            $result_user = mysqli_query($con, $get_user);
+            $row_user = mysqli_fetch_assoc($result_user);
+            $user_id = $row_user['user_id'];
+            
+            // Check if product is already in cart
+            $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add' AND product_id=$get_product_id AND user_id=$user_id";
+            $result_query = mysqli_query($con, $select_query);
+            
+            if(mysqli_num_rows($result_query) > 0) {
+                echo "<script>alert('This item is already in your cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            } else {
+                $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity, user_id) 
+                                VALUES ($get_product_id, '$get_ip_add', 1, $user_id)";
+                $result_query = mysqli_query($con, $insert_query);
+                echo "<script>alert('Item added to cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            }
         } else {
-            $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity, user_id) 
-                            VALUES ($get_product_id, '$get_ip_add', 1, $user_id)";
-            $result_query = mysqli_query($con, $insert_query);
-            echo "<script>alert('Item added to cart')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+            // For guest users, continue using IP only
+            $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add' AND product_id=$get_product_id AND user_id IS NULL";
+            $result_query = mysqli_query($con, $select_query);
+            
+            if(mysqli_num_rows($result_query) > 0) {
+                echo "<script>alert('This item is already in your cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            } else {
+                $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) 
+                                VALUES ($get_product_id, '$get_ip_add', 1)";
+                $result_query = mysqli_query($con, $insert_query);
+                echo "<script>alert('Item added to cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            }
         }
     }
 }
+
 // cart item 
 function cart_item() {
     global $con;
@@ -531,3 +542,13 @@ function get_user_order_details(){
 
 
 ?>
+ <script>
+function checkLoginAndAddToCart(productId) {
+    <?php if(isset($_SESSION['user_id'])) { ?>
+        window.location.href = 'index.php?add_to_cart=' + productId;
+    <?php } else { ?>
+        alert('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng');
+        window.location.href = './users_area/user_login.php';
+    <?php } ?>
+}
+</script>

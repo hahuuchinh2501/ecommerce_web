@@ -104,7 +104,6 @@ include('../functions/common_function.php');
                 <button class="admin-button bg-info"><a href="index.php?list_orders">All orders</a></button>
                 <button class="admin-button bg-info"><a href="index.php?list_payments">All payment</a></button>
                 <button class="admin-button bg-info"><a href="index.php?list_users">List user</a></button>
-                 <button class="admin-button bg-info"><a href="index.php?list_orders_pending">List order pending</a></button>
                 <button class="admin-button bg-info"><a href="admin_logout.php">Logout</a></button>
             </div>
         </div>
@@ -164,19 +163,11 @@ include('../functions/common_function.php');
         if(isset($_GET['delete_user'])){
             include('delete_user.php');
         }
-          if(isset($_GET['list_orders_pending'])){
-            include('list_orders_pending.php');
-        }
-        if(isset($_GET['delete_order_pending'])){
-            include('delete_order_pending.php');
-        }
         ?>
     </div>
-    <footer>
     <?php
         include("../includes/footer.php")
     ?>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

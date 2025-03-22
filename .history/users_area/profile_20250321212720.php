@@ -161,7 +161,7 @@ session_start();
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="profile.php?information_orders">
+                                <a class="nav-link" href="profile.php?information_order">
                                     <i class="fas fa-info-circle"></i> Order Information
                                 </a>
                             </li>

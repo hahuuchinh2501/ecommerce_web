@@ -197,7 +197,16 @@ session_start();
             });
         });
     </script>
-   
+    <script>
+function checkLoginAndAddToCart(productId) {
+    <?php if(isset($_SESSION['user_id'])) { ?>
+        window.location.href = 'index.php?add_to_cart=' + productId;
+    <?php } else { ?>
+        alert('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng');
+        window.location.href = './users_area/user_login.php';
+    <?php } ?>
+}
+</script>
 </body>
 
 </html>

@@ -160,11 +160,11 @@ session_start();
                                     <i class="fas fa-user-times"></i> Delete Account
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="profile.php?information_orders">
-                                    <i class="fas fa-info-circle"></i> Order Information
-                                </a>
-                            </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="profile.php?information_order">
+                                     <i class="fas fa-info-circle"></i> Order Information
+                                 </a>
+                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="logout.php">
                                     <i class="fas fa-sign-out-alt"></i> Logout

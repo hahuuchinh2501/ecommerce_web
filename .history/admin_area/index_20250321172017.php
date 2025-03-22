@@ -164,12 +164,6 @@ include('../functions/common_function.php');
         if(isset($_GET['delete_user'])){
             include('delete_user.php');
         }
-          if(isset($_GET['list_orders_pending'])){
-            include('list_orders_pending.php');
-        }
-        if(isset($_GET['delete_order_pending'])){
-            include('delete_order_pending.php');
-        }
         ?>
     </div>
     <footer>

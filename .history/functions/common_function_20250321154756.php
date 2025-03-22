@@ -408,41 +408,50 @@ function getIPAddress()
 function cart() {
     if(isset($_GET['add_to_cart'])) {
         global $con;
-        
-        // Check if user is logged in
-        if(!isset($_SESSION['username'])) {
-            // User is not logged in, redirect to login page with a message
-            echo "<script>alert('Please login to add items to cart')</script>";
-            echo "<script>window.open('./users_area/user_login.php','_self')</script>";
-            return; // Stop execution of the function
-        }
-        
         $get_ip_add = getIPAddress();
         $get_product_id = $_GET['add_to_cart'];
-        $username = $_SESSION['username'];
         
-        // Get user ID from username
-        $get_user = "SELECT * FROM user_table WHERE username='$username'";
-        $result_user = mysqli_query($con, $get_user);
-        $row_user = mysqli_fetch_assoc($result_user);
-        $user_id = $row_user['user_id'];
-        
-        // Check if product is already in cart
-        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add' AND product_id=$get_product_id AND user_id=$user_id";
-        $result_query = mysqli_query($con, $select_query);
-        
-        if(mysqli_num_rows($result_query) > 0) {
-            echo "<script>alert('This item is already in your cart')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+        // Check if user is logged in
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            $get_user = "SELECT * FROM user_table WHERE username='$username'";
+            $result_user = mysqli_query($con, $get_user);
+            $row_user = mysqli_fetch_assoc($result_user);
+            $user_id = $row_user['user_id'];
+            
+            // Check if product is already in cart
+            $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add' AND product_id=$get_product_id AND user_id=$user_id";
+            $result_query = mysqli_query($con, $select_query);
+            
+            if(mysqli_num_rows($result_query) > 0) {
+                echo "<script>alert('This item is already in your cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            } else {
+                $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity, user_id) 
+                                VALUES ($get_product_id, '$get_ip_add', 1, $user_id)";
+                $result_query = mysqli_query($con, $insert_query);
+                echo "<script>alert('Item added to cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            }
         } else {
-            $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity, user_id) 
-                            VALUES ($get_product_id, '$get_ip_add', 1, $user_id)";
-            $result_query = mysqli_query($con, $insert_query);
-            echo "<script>alert('Item added to cart')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+            // For guest users, continue using IP only
+            $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add' AND product_id=$get_product_id AND user_id IS NULL";
+            $result_query = mysqli_query($con, $select_query);
+            
+            if(mysqli_num_rows($result_query) > 0) {
+                echo "<script>alert('This item is already in your cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            } else {
+                $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) 
+                                VALUES ($get_product_id, '$get_ip_add', 1)";
+                $result_query = mysqli_query($con, $insert_query);
+                echo "<script>alert('Item added to cart')</script>";
+                echo "<script>window.open('index.php','_self')</script>";
+            }
         }
     }
 }
+
 // cart item 
 function cart_item() {
     global $con;

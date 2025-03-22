@@ -148,7 +148,7 @@ if (isset($_POST['insert_product'])) {
             <!-- Submit Button -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <input type="submit" name="insert_product" class="btn btn-info mb-3 px-3" value="Insert Product">
-                <button onclick="history.back()">Go Back</button>
+                <button href="./admin_area/index.php">back</button>
             </div>
         </form>
     </div>

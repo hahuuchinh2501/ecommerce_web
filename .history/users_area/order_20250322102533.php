@@ -64,6 +64,19 @@ while($item = mysqli_fetch_array($cart_items)) {
     $result_pending_orders = mysqli_query($con, $insert_pending_orders);
 }
 
+// Clear the cart only after successfully creating all orders
+if($result_query) {
+    $empty_cart = "DELETE FROM `cart_details` WHERE ip_address='$get_ip_address' AND user_id=$user_id";
+    $result_delete = mysqli_query($con, $empty_cart);
+    
+    echo "<script>alert('Orders submitted successfully');</script>";
+    echo "<script>window.open('../users_area/profile.php', '_self');</script>";
+} else {
+    echo "<script>alert('There was an error processing your order');</script>";
+}
+
+
+
 // Insert each product from cart into information_order table
 $cart_items = mysqli_query($con, "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_address' AND user_id=$user_id");
 while($item = mysqli_fetch_array($cart_items)) {
@@ -84,19 +97,4 @@ while($item = mysqli_fetch_array($cart_items)) {
         VALUES ('$user_id', '$username', '$product_title', '$quantity', '$amount_due', NOW(), '$status')";
     $result_info_order = mysqli_query($con, $insert_info_order);
 }
-
-// Clear the cart only after successfully creating all orders
-if($result_query) {
-    $empty_cart = "DELETE FROM `cart_details` WHERE ip_address='$get_ip_address' AND user_id=$user_id";
-    $result_delete = mysqli_query($con, $empty_cart);
-    
-    echo "<script>alert('Orders submitted successfully');</script>";
-    echo "<script>window.open('../users_area/profile.php', '_self');</script>";
-} else {
-    echo "<script>alert('There was an error processing your order');</script>";
-}
-
-
-
-
 ?>

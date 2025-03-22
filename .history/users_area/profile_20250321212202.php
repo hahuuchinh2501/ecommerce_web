@@ -160,11 +160,11 @@ session_start();
                                     <i class="fas fa-user-times"></i> Delete Account
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="profile.php?information_orders">
-                                    <i class="fas fa-info-circle"></i> Order Information
-                                </a>
-                            </li>
+                             <li class="nav-item">
+        <a class="nav-link" href="profile.php?information_order">
+            <i class="fas fa-info-circle"></i> Order Information
+        </a>
+    </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="logout.php">
                                     <i class="fas fa-sign-out-alt"></i> Logout
@@ -184,11 +184,9 @@ session_start();
                             include('user_orders.php');
                         } else if (isset($_GET['delete_account'])) {
                             include('delete_account.php');
-                        
-                        } else if(isset($_GET['information_orders'])) {
-                            include('information_orders.php');
-                        }
-                        else {
+                        } else if (isset($_GET['information_order'])) {
+                            include('../users_area/information_order.php');
+                        } else {
                             // Default content - Pending Orders
                             echo "<h4 class='section-title'><i class='fas fa-shopping-bag me-2'></i>Pending Orders</h4>";
                             get_user_order_details();
